@@ -10,7 +10,7 @@ Manage music release campaigns using RELEASE.md as the single source of truth.
 ## Folder Structure
 
 ```
-[Org Root]/
+[Label Name]/
 └── [Artist Name]/
     └── Releases/
         └── [Release Name]/
@@ -32,7 +32,7 @@ When the user mentions a release, infer:
 
 1. **Artist Name** — From context, conversation history, or ask
 2. **Release Name** — Album title, EP name, single title
-3. **Org/Root folder** — The workspace root or a known label folder
+3. **Label folder** — The workspace root or a known label folder
 
 **If unclear, ask:**
 > "Which artist and release are you referring to?"
@@ -185,7 +185,7 @@ Before announcement, verify these sections are complete:
 ### User mentions a release casually
 > **User:** "What's the status on the new Wiz Khalifa album?"
 > 
-> **Claude's process:**
+> **Process:**
 > 1. Infer: Artist = "Wiz Khalifa", Release = unclear (new album)
 > 2. List `Wiz Khalifa/Releases/` to find recent releases
 > 3. If found → Read RELEASE.md, summarize status
@@ -194,7 +194,7 @@ Before announcement, verify these sections are complete:
 ### User provides release info
 > **User:** "The UPC for Mac's new single 'Sunrise' is 123456789012"
 >
-> **Claude's process:**
+> **Process:**
 > 1. Infer: Artist = "Mac Miller", Release = "Sunrise"
 > 2. Check if `Mac Miller/Releases/Sunrise/RELEASE.md` exists
 > 3. If YES → Update Section 2.1 with UPC
@@ -203,7 +203,7 @@ Before announcement, verify these sections are complete:
 ### User asks for a deliverable
 > **User:** "Generate a DSP pitch for Taylor's Midnights"
 >
-> **Claude's process:**
+> **Process:**
 > 1. Infer: Artist = "Taylor Swift", Release = "Midnights"
 > 2. Read `Taylor Swift/Releases/Midnights/RELEASE.md`
 > 3. Check Sections 1, 3, 4, 5, 6 for required data
@@ -213,7 +213,7 @@ Before announcement, verify these sections are complete:
 ### User starts a new project
 > **User:** "Let's start planning Drake's new album 'For All The Dogs'"
 >
-> **Claude's process:**
+> **Process:**
 > 1. Infer: Artist = "Drake", Release = "For All The Dogs"
 > 2. Check if folder exists
 > 3. Create `Drake/Releases/For All The Dogs/RELEASE.md`

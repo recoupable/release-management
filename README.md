@@ -1,6 +1,6 @@
-# Release Management Skill
+# Recoup Release Management Skill
 
-A Claude skill for managing music release campaigns using RELEASE.md documents as the single source of truth.
+An LLM skill for managing music release campaigns using RELEASE.md documents as the single source of truth.
 
 ## What It Does
 
@@ -14,7 +14,7 @@ A Claude skill for managing music release campaigns using RELEASE.md documents a
 The skill expects releases organized by artist:
 
 ```
-[Org Root]/
+[Label Name]/
 └── [Artist Name]/
     └── Releases/
         └── [Release Name]/
@@ -33,7 +33,7 @@ Just mention a release naturally:
 
 > "Let's start planning the new Wiz Khalifa project"
 
-Claude will:
+The LLM will:
 1. Infer the artist and release from your message
 2. Find or create the RELEASE.md
 3. Read, update, or generate outputs as needed
