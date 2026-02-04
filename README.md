@@ -49,29 +49,23 @@ The LLM will:
 
 ## RELEASE.md Sections
 
-| # | Section | Sharing |
-|---|---------|---------|
-| 1 | Project Snapshot | SHAREABLE |
-| 2 | Release Identifiers & Metadata | OPS |
-| 3 | Narrative & Positioning | SHAREABLE |
-| 4 | Artist Background | SHAREABLE |
-| 5 | Audience & Market Data | SHAREABLE |
-| 6 | DSP & Streaming Strategy | SHAREABLE |
-| 7 | Marketing Strategy | INTERNAL |
-| 8 | Social & Digital Marketing | INTERNAL |
-| 9 | PR & Media Relations | SHAREABLE |
-| 10 | Visual & Creative Assets | SHAREABLE |
-| 11 | Physical Production | OPS/INTERNAL |
-| 12 | Merch | INTERNAL |
-| 13 | Experiential & OOH | INTERNAL |
-| 14 | Touring & Live | SHAREABLE |
-| 15 | Team Contacts | INTERNAL |
-| 16 | Budget Overview | INTERNAL |
-| 17 | Performance Tracking | INTERNAL |
-| 18 | Links & Resources Hub | — |
-
-## Sharing Tags
-
-- `[INTERNAL]` — Scrub before sharing externally
-- `[SHAREABLE]` — Safe for DSPs, press, management, partners
-- `[OPS]` — Operations/production team reference
+| # | Section |
+|---|---------|
+| 1 | Project Snapshot |
+| 2 | Release Identifiers & Metadata |
+| 3 | Narrative & Positioning |
+| 4 | Artist Background |
+| 5 | Audience & Market Data |
+| 6 | DSP & Streaming Strategy |
+| 7 | Marketing Strategy |
+| 8 | Social & Digital Marketing |
+| 9 | PR & Media Relations |
+| 10 | Visual & Creative Assets |
+| 11 | Physical Production |
+| 12 | Merch |
+| 13 | Experiential & OOH |
+| 14 | Touring & Live |
+| 15 | Team Contacts |
+| 16 | Budget Overview |
+| 17 | Performance Tracking |
+| 18 | Links & Resources Hub |
