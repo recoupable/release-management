@@ -182,39 +182,36 @@ Before announcement, verify these sections are complete:
 
 ## Example Interactions
 
-### User mentions a release casually
-> **User:** "What's the status on the new Wiz Khalifa album?"
+### Creating a new release
+> **User:** "Create a RELEASE.md for Wiz Khalifa's new album 'Decisions'"
 > 
 > **Process:**
-> 1. Infer: Artist = "Wiz Khalifa", Release = unclear (new album)
-> 2. List `Wiz Khalifa/Releases/` to find recent releases
-> 3. If found → Read RELEASE.md, summarize status
-> 4. If not found → Ask: "Which album? I see [list] or should I create a new release doc?"
+> 1. Artist = "Wiz Khalifa", Release = "Decisions"
+> 2. Create `Wiz Khalifa/Releases/Decisions/RELEASE.md` from template
+> 3. Ask: "What's the release date?" (to fill Section 1)
 
-### User provides release info
-> **User:** "The UPC for Mac's new single 'Sunrise' is 123456789012"
+### Adding metadata
+> **User:** "Update Mac Miller's 'Sunrise' RELEASE.md with these ISRCs"
 >
 > **Process:**
-> 1. Infer: Artist = "Mac Miller", Release = "Sunrise"
-> 2. Check if `Mac Miller/Releases/Sunrise/RELEASE.md` exists
-> 3. If YES → Update Section 2.1 with UPC
-> 4. If NO → "I don't see a RELEASE.md for 'Sunrise'. Should I create one and add this UPC?"
+> 1. Artist = "Mac Miller", Release = "Sunrise"
+> 2. Open `Mac Miller/Releases/Sunrise/RELEASE.md`
+> 3. Update Section 2.2 with ISRC data
+> 4. If file not found → "No RELEASE.md for 'Sunrise'. Should I create one?"
 
-### User asks for a deliverable
-> **User:** "Generate a DSP pitch for Taylor's Midnights"
+### Generating a deliverable
+> **User:** "Generate a DSP pitch from Taylor Swift's Midnights RELEASE.md"
 >
 > **Process:**
-> 1. Infer: Artist = "Taylor Swift", Release = "Midnights"
-> 2. Read `Taylor Swift/Releases/Midnights/RELEASE.md`
-> 3. Check Sections 1, 3, 4, 5, 6 for required data
-> 4. If complete → Generate pitch per `deliverables.md` format
-> 5. If gaps → "Missing [fields]. Want me to proceed with gaps noted?"
+> 1. Read `Taylor Swift/Releases/Midnights/RELEASE.md`
+> 2. Pull data from Sections 1, 3, 4, 5, 6
+> 3. Format per `deliverables.md` spec
+> 4. If missing fields → "Missing [fields]. Proceed with gaps noted?"
 
-### User starts a new project
-> **User:** "Let's start planning Drake's new album 'For All The Dogs'"
+### Checking release status
+> **User:** "What's missing from Drake's 'For All The Dogs' release doc?"
 >
 > **Process:**
-> 1. Infer: Artist = "Drake", Release = "For All The Dogs"
-> 2. Check if folder exists
-> 3. Create `Drake/Releases/For All The Dogs/RELEASE.md`
-> 4. Ask: "What's the target release date?" (to fill Section 1)
+> 1. Read `Drake/Releases/For All The Dogs/RELEASE.md`
+> 2. Run through Pre-Release Checklist
+> 3. Report incomplete sections

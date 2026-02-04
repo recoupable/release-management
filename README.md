@@ -23,20 +23,15 @@ The skill expects releases organized by artist:
 
 ## Usage
 
-Just mention a release naturally:
+> "Create a RELEASE.md for [Artist]'s new album '[Title]'"
 
-> "What's the status on Drake's new album?"
+> "Update [Artist]'s RELEASE.md with this ISRC data"
 
-> "The UPC for Mac's single 'Sunrise' is 123456789012"
+> "Add track metadata to [Artist]'s '[Title]' release"
 
-> "Generate a DSP pitch for Taylor's Midnights"
+> "Generate a DSP pitch from [Artist]'s RELEASE.md"
 
-> "Let's start planning the new Wiz Khalifa project"
-
-The LLM will:
-1. Infer the artist and release from your message
-2. Find or create the RELEASE.md
-3. Read, update, or generate outputs as needed
+> "What's missing from [Artist]'s release doc before announcement?"
 
 ## Files
 
