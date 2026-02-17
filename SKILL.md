@@ -1,6 +1,6 @@
 ---
 name: release-management
-description: Manage music releases using RELEASE.md documents stored in [Artist]/Releases/[Release Name]/. Triggers when the user mentions an artist's album, EP, single, or project — or asks about release planning, DSP pitches, metadata, marketing, press materials, physical production, or tour coordination. First infer which artist and release the user means, then find or create the RELEASE.md. Use this skill to create, update, or pull data from release documents, and to generate deliverables like DSP pitches, press one-sheets, and production specs.
+description: Manage music releases using RELEASE.md documents stored in releases/{release-slug}/ within an artist workspace. Triggers when the user mentions an artist's album, EP, single, or project — or asks about release planning, DSP pitches, metadata, marketing, press materials, physical production, or tour coordination. First infer which artist and release the user means, then find or create the RELEASE.md. Use this skill to create, update, or pull data from release documents, and to generate deliverables like DSP pitches, press one-sheets, and production specs.
 ---
 
 # Music Release Management
@@ -9,20 +9,22 @@ Manage music release campaigns using RELEASE.md as the single source of truth.
 
 ## Folder Structure
 
+Releases live inside an artist workspace under `releases/`. The full path from the sandbox root:
+
 ```
-[Label Name]/
-└── [Artist Name]/
-    └── Releases/
-        └── [Release Name]/
+orgs/{org-name}/
+└── artists/
+    └── {artist-slug}/
+        └── releases/
+            └── {release-slug}/
             └── RELEASE.md
 ```
 
+Use lowercase-kebab-case for release slugs (e.g. `blue-slide-park`, `debut-ep`).
+
 **Example:**
 ```
-Rostrum Records/
-└── Mac Miller/
-    └── Releases/
-        └── Blue Slide Park/
+orgs/recoup-records/artists/gatsby-grace/releases/adhd-ep/
             └── RELEASE.md
 ```
 
@@ -30,9 +32,10 @@ Rostrum Records/
 
 When the user mentions a release, infer:
 
-1. **Artist Name** — From context, conversation history, or ask
-2. **Release Name** — Album title, EP name, single title
-3. **Label folder** — The workspace root or a known label folder
+1. **Organization** — From the sandbox structure or conversation context
+2. **Artist** — From the current workspace, conversation history, or ask
+3. **Release Name** — Album title, EP name, single title
+4. **Release slug** — Derive from the name (e.g. "Blue Slide Park" → `blue-slide-park`)
 
 **If unclear, ask:**
 > "Which artist and release are you referring to?"
@@ -42,7 +45,7 @@ When the user mentions a release, infer:
 Once artist and release are identified:
 
 ```
-1. Navigate to: [Root]/[Artist]/Releases/[Release Name]/
+1. Navigate to: orgs/{org}/artists/{artist-slug}/releases/{release-slug}/
 2. Check if RELEASE.md exists
 3. If YES → Read it and proceed
 4. If NO → Ask: "No RELEASE.md found for [Release]. Should I create one?"
@@ -60,12 +63,10 @@ Once artist and release are identified:
 ### Creating a New Release
 
 ```bash
-# 1. Create the folder structure
-mkdir -p "[Artist Name]/Releases/[Release Name]"
+# 1. Create the folder structure (from sandbox root)
+mkdir -p "orgs/{org}/artists/{artist-slug}/releases/{release-slug}"
 
-# 2. Copy the template
-cp references/release-template.md "[Artist Name]/Releases/[Release Name]/RELEASE.md"
-
+# 2. Create RELEASE.md from template
 # 3. Fill Section 1 (Project Snapshot) first
 ```
 
@@ -183,35 +184,35 @@ Before announcement, verify these sections are complete:
 ## Example Interactions
 
 ### Creating a new release
-> **User:** "Create a RELEASE.md for Wiz Khalifa's new album 'Decisions'"
+> **User:** "Create a RELEASE.md for the new album 'Decisions'"
 > 
 > **Process:**
-> 1. Artist = "Wiz Khalifa", Release = "Decisions"
-> 2. Create `Wiz Khalifa/Releases/Decisions/RELEASE.md` from template
+> 1. Release = "Decisions", slug = `decisions`
+> 2. Create `releases/decisions/RELEASE.md` from template
 > 3. Ask: "What's the release date?" (to fill Section 1)
 
 ### Adding metadata
-> **User:** "Update Mac Miller's 'Sunrise' RELEASE.md with these ISRCs"
+> **User:** "Update the 'Sunrise' RELEASE.md with these ISRCs"
 >
 > **Process:**
-> 1. Artist = "Mac Miller", Release = "Sunrise"
-> 2. Open `Mac Miller/Releases/Sunrise/RELEASE.md`
+> 1. Release = "Sunrise", slug = `sunrise`
+> 2. Open `releases/sunrise/RELEASE.md`
 > 3. Update Section 2.2 with ISRC data
 > 4. If file not found → "No RELEASE.md for 'Sunrise'. Should I create one?"
 
 ### Generating a deliverable
-> **User:** "Generate a DSP pitch from Taylor Swift's Midnights RELEASE.md"
+> **User:** "Generate a DSP pitch from the Midnights RELEASE.md"
 >
 > **Process:**
-> 1. Read `Taylor Swift/Releases/Midnights/RELEASE.md`
+> 1. Read `releases/midnights/RELEASE.md`
 > 2. Pull data from Sections 1, 3, 4, 5, 6
 > 3. Format per `deliverables.md` spec
 > 4. If missing fields → "Missing [fields]. Proceed with gaps noted?"
 
 ### Checking release status
-> **User:** "What's missing from Drake's 'For All The Dogs' release doc?"
+> **User:** "What's missing from the 'For All The Dogs' release doc?"
 >
 > **Process:**
-> 1. Read `Drake/Releases/For All The Dogs/RELEASE.md`
+> 1. Read `releases/for-all-the-dogs/RELEASE.md`
 > 2. Run through Pre-Release Checklist
 > 3. Report incomplete sections
