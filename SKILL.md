@@ -12,7 +12,7 @@ Manage music release campaigns using RELEASE.md as the single source of truth.
 Releases live inside an artist workspace under `releases/`. The full path from the sandbox root:
 
 ```
-orgs/{org-name}/
+orgs/{org}/
 └── artists/
     └── {artist-slug}/
         └── releases/
